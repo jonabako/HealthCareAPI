@@ -2,8 +2,11 @@
 {
     public class UserRoles
     {
-        public static string Admin = "Admin";
+        // no longer of use as admin role is manually added in database
+        /*public static string Admin = "Admin";*/
 
-        public static string User = "User";
+        public static string Patient = "Patient";
+
+        public static string Doctor = "Doctor";
     }
 }
