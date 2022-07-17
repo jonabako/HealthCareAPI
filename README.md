@@ -18,7 +18,7 @@
 
 - [x] enabled JWT authentication and authorization for use of project properties
 
-- [ ] created profile module to view and modify user data for all users
+- [x] created profile module to view and modify user data for all users
 
 - [ ] created doctor module to view, update, and delete (soft delete) doctors
 
@@ -35,9 +35,9 @@
 ## Built with
 <ul>
   <li>.Net Core 5.0</li>
-  <li>Visual Studio</li>
-  <li>MSSQL Server</li>
-  <li>Angular</li>
+  <li>Visual Studio 2022</li>
+  <li>Microsoft SQL Server 2019</li>
+  <li>Angular 14.0.2</li>
 </ul>
 
 ## Installation Guide (only supported in Windows OS)

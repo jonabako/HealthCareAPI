@@ -5,13 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="DbContext\log4net.config" />
-    <Content Remove="log4net.config" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

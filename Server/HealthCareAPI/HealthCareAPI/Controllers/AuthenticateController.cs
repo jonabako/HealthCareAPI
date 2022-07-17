@@ -47,7 +47,15 @@ namespace HealthCareAPI.Controllers
 
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details & try again." });
+            {
+                var errors = new List<string>();
+                foreach(var error in result.Errors)
+                {
+                    errors.Add(error.Description);
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = string.Join(Environment.NewLine, errors) });
+            }
 
             if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
                 await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
@@ -74,7 +82,15 @@ namespace HealthCareAPI.Controllers
 
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details & try again." });
+            {
+                var errors = new List<string>();
+                foreach (var error in result.Errors)
+                {
+                    errors.Add(error.Description);
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = string.Join(Environment.NewLine, errors) });
+            }
 
             if (!await _roleManager.RoleExistsAsync(UserRoles.Patient))
                 await _roleManager.CreateAsync(new IdentityRole(UserRoles.Patient));
@@ -101,7 +117,15 @@ namespace HealthCareAPI.Controllers
 
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details & try again." });
+            {
+                var errors = new List<string>();
+                foreach (var error in result.Errors)
+                {
+                    errors.Add(error.Description);
+                }
+
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = string.Join(Environment.NewLine, errors) });
+            }
 
             if (!await _roleManager.RoleExistsAsync(UserRoles.Doctor))
                 await _roleManager.CreateAsync(new IdentityRole(UserRoles.Doctor));
